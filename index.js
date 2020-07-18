@@ -1,5 +1,5 @@
 const inq = require("inquirer");
-//const fs = require("fs");
+const fs = require("fs");
 //const util = require('util');
 
 inq.prompt([
@@ -50,6 +50,7 @@ inq.prompt([
     }
 ]).then(response => {
     console.log(response);
+    fs.writeFile(response);
 })
 
 
