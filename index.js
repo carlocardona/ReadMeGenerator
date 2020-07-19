@@ -9,7 +9,7 @@ inq.prompt([
         name: "username"
     },
     {
-        type:"input",
+        type: "input",
         message: "What is your email address?",
         name: "email"
     },
@@ -17,37 +17,37 @@ inq.prompt([
         type: "input",
         message: "What is your project's name?",
         name: "projName"
-    },
-    {
-        type: "input",
-        message: "Please write a short descripiton of your project.",
-        name: "desc"
-    },
-    {
-        type: "input",
-        message: "What kind of license should your project have?",
-        name: "license"
-    },
-    {
-        type: "input",
-        message:"What command should be run to install dependencies?",
-        name:"depend"
-    },
-    {
-        type: "input",
-        message: "What command should be run to run tests?",
-        name: "commands"
-    },
-    {
-        type: "input",
-        message: "What does the user need to know about using the repo?",
-        name: "info"
-    },
-    {
-        type: "input",
-        message: "What does the user need to know about contributing to the repo?",
-        name: "contributer"
     }
+    // {
+    //     type: "input",
+    //     message: "Please write a short descripiton of your project.",
+    //     name: "desc"
+    // },
+    // {
+    //     type: "input",
+    //     message: "What kind of license should your project have?",
+    //     name: "license"
+    // },
+    // {
+    //     type: "input",
+    //     message:"What command should be run to install dependencies?",
+    //     name:"depend"
+    // },
+    // {
+    //     type: "input",
+    //     message: "What command should be run to run tests?",
+    //     name: "commands"
+    // },
+    // {
+    //     type: "input",
+    //     message: "What does the user need to know about using the repo?",
+    //     name: "info"
+    // },
+    // {
+    //     type: "input",
+    //     message: "What does the user need to know about contributing to the repo?",
+    //     name: "contributer"
+    // }
 ]).then(response => {
     console.log(response);
     fs.writeFile(response);
