@@ -17,20 +17,22 @@ inq.prompt([
         type: "input",
         message: "What is your project's name?",
         name: "projName"
+    },
+    {
+        type: "input",
+        message: "Please write a short descripiton of your project.",
+        name: "desc"
+    },
+    {
+        type: "list",
+        message: "What kind of license should your project have?",
+        choices: ["MIT", "Apache%202.0", "GPLv3", "BSD%203--Clause", "None",],
+        name: "license"
     }
     // {
     //     type: "input",
-    //     message: "Please write a short descripiton of your project.",
-    //     name: "desc"
-    // },
-    // {
-    //     type: "input",
-    //     message: "What kind of license should your project have?",
-    //     name: "license"
-    // },
-    // {
-    //     type: "input",
     //     message:"What command should be run to install dependencies?",
+    //     default: "npm i",
     //     name:"depend"
     // },
     // {
@@ -49,8 +51,21 @@ inq.prompt([
     //     name: "contributer"
     // }
 ]).then(response => {
-    console.log(response);
-    fs.writeFile(response);
-})
+    const fileName = response.projName + ".md";
 
+    const template = `
 
+    # Project - ${response.projName}
+
+    ![GitHub license](https://img.shields.io/badge/License-${response.license}-blue.svg)
+
+    ## Description
+    ${response.desc}
+
+    ## Contents
+    $
+    
+    
+    `
+    fs.writeFile(fileName);
+});
