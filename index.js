@@ -1,6 +1,6 @@
 const inq = require("inquirer");
 const fs = require("fs");
-//const util = require('util');
+//const util = require("util");
 
 inq.prompt([
     {
@@ -51,10 +51,10 @@ inq.prompt([
         name: "contributing"
     },
 ]).then(response => {
-    const fileName = response.projName + ".md";
+    const fileName = response.projName;
 
-    const template = `
-
+    const template =
+        `
     #Project - ${response.projName}
 
     ![GitHub license](https://img.shields.io/badge/License-${response.license}-blue.svg)
@@ -89,7 +89,7 @@ inq.prompt([
     GitHub: https://github.com/${response.username}
     Email: ${response.email}
     `
-    fs.writeFile(fileName, template, (err) => {
+    fs.writeFile(fileName + ".md", template, (err) => {
         if (err) { console.log(err) }
     });
 });
