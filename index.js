@@ -28,28 +28,28 @@ inq.prompt([
         message: "What kind of license should your project have?",
         choices: ["MIT", "Apache%202.0", "GPLv3", "BSD%203--Clause", "None",],
         name: "license"
+    },
+    {
+        type: "input",
+        message: "What command should be run to install dependencies?",
+        default: "npm i",
+        name: "depend"
+    },
+    {
+        type: "input",
+        message: "What command should be run to run tests?",
+        name: "commands"
+    },
+    {
+        type: "input",
+        message: "What does the user need to know about using the repo?",
+        name: "info"
+    },
+    {
+        type: "input",
+        message: "What does the user need to know about contributing to the repo?",
+        name: "contributer"
     }
-    // {
-    //     type: "input",
-    //     message:"What command should be run to install dependencies?",
-    //     default: "npm i",
-    //     name:"depend"
-    // },
-    // {
-    //     type: "input",
-    //     message: "What command should be run to run tests?",
-    //     name: "commands"
-    // },
-    // {
-    //     type: "input",
-    //     message: "What does the user need to know about using the repo?",
-    //     name: "info"
-    // },
-    // {
-    //     type: "input",
-    //     message: "What does the user need to know about contributing to the repo?",
-    //     name: "contributer"
-    // }
 ]).then(response => {
     const fileName = response.projName + ".md";
 
@@ -62,10 +62,15 @@ inq.prompt([
     ## Description
     ${response.desc}
 
-    ## Contents
-    
-    
-    
+    ## Table of Contents
+    Installation(#Installation)
+    Usage(#Usage)
+    License(#License)
+    Contributing(#Contributing)
+    Tests(#Tests)
+    Questions(#Questions)
+
+
     `
     fs.writeFile(fileName, template, (err) => {
         if (err) { console.log(err) }
