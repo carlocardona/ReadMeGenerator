@@ -48,21 +48,21 @@ inq.prompt([
     {
         type: "input",
         message: "What does the user need to know about contributing to the repo?",
-        name: "contributer"
-    }
+        name: "contributing"
+    },
 ]).then(response => {
     const fileName = response.projName + ".md";
 
     const template = `
 
-    # Project - ${response.projName}
+    #Project - ${response.projName}
 
     ![GitHub license](https://img.shields.io/badge/License-${response.license}-blue.svg)
 
-    ## Description
+    ##Description
     ${response.desc}
 
-    ## Table of Contents
+    ##Table of Contents
     Installation(#Installation)
     Usage(#Usage)
     License(#License)
@@ -70,7 +70,24 @@ inq.prompt([
     Tests(#Tests)
     Questions(#Questions)
 
+    ##Installation / Dependencies
+    ${response.depend}
 
+    ##Usage
+    ${response.info}
+
+    ##License
+    ${response.license}
+    
+    ##Contributing
+    ${response.contributing}
+
+    ##Tests
+    ${response.commands}
+
+    ##Questions
+    GitHub: https://github.com/${response.username}
+    Email: ${response.email}
     `
     fs.writeFile(fileName, template, (err) => {
         if (err) { console.log(err) }
