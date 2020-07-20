@@ -63,9 +63,11 @@ inq.prompt([
     ${response.desc}
 
     ## Contents
-    $
+    
     
     
     `
-    fs.writeFile(fileName);
+    fs.writeFile(fileName, template, (err) => {
+        if (err) { console.log(err) }
+    });
 });
