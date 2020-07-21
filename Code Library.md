@@ -7,7 +7,7 @@
 I want to create a repository for all made up coding language.
 
 ## Table of Contents
-Installation(#Installation)
+[Installation](#Installation)
 Usage(#Usage)
 License(#License)
 Contributing(#Contributing)
