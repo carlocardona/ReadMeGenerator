@@ -64,12 +64,12 @@ inq.prompt([
 ${response.desc}
 
 ## Table of Contents
-Installation(#Installation)
-Usage(#Usage)
-License(#License)
-Contributing(#Contributing)
-Tests(#Tests)
-Questions(#Questions)
+[Installation](#Installation)
+[Usage](#Usage)
+[License](#License)
+[Contributing](#Contributing)
+[Tests](#Tests)
+[Questions](#Questions)
 
 ## Installation / Dependencies
 ${response.depend}
@@ -89,7 +89,7 @@ ${response.commands}
 ## Questions
 GitHub: https://github.com/${response.username}
 Email: ${response.email}
-    `
+`
     fs.writeFile(fileName, template, (err) => {
         if (err) { console.log(err) }
     });
