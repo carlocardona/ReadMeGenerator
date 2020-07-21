@@ -1,6 +1,7 @@
 const inq = require("inquirer");
 const fs = require("fs");
-//const util = require("util");
+//const generateMarkdown = require("./utils/generateMarkdown.js");
+
 
 inq.prompt([
     {
@@ -51,45 +52,45 @@ inq.prompt([
         name: "contributing"
     },
 ]).then(response => {
-    const fileName = response.projName;
+    const fileName = response.projName + ".md";
 
     const template =
         `
-    #Project - ${response.projName}
+# Project - ${response.projName}
 
-    ![GitHub license](https://img.shields.io/badge/License-${response.license}-blue.svg)
+![GitHub license](https://img.shields.io/badge/License-${response.license}-blue.svg)
 
-    ##Description
-    ${response.desc}
+## Description
+${response.desc}
 
-    ##Table of Contents
-    Installation(#Installation)
-    Usage(#Usage)
-    License(#License)
-    Contributing(#Contributing)
-    Tests(#Tests)
-    Questions(#Questions)
+## Table of Contents
+Installation(#Installation)
+Usage(#Usage)
+License(#License)
+Contributing(#Contributing)
+Tests(#Tests)
+Questions(#Questions)
 
-    ##Installation / Dependencies
-    ${response.depend}
+## Installation / Dependencies
+${response.depend}
 
-    ##Usage
-    ${response.info}
+## Usage
+${response.info}
 
-    ##License
-    ${response.license}
+## License
+${response.license}
     
-    ##Contributing
-    ${response.contributing}
+## Contributing
+${response.contributing}
 
-    ##Tests
-    ${response.commands}
+## Tests
+${response.commands}
 
-    ##Questions
-    GitHub: https://github.com/${response.username}
-    Email: ${response.email}
+## Questions
+GitHub: https://github.com/${response.username}
+Email: ${response.email}
     `
-    fs.writeFile(fileName + ".md", template, (err) => {
+    fs.writeFile(fileName, template, (err) => {
         if (err) { console.log(err) }
     });
 });
